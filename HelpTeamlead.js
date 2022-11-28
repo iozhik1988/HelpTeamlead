@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
+// @downloadURL  https://github.com/iozhik1988/HelpTeamlead/blob/main/HelpTeamlead.js
 // @match        *bitrix24.team/services/openlines/bx_stat.php*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bitrix24.team
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
