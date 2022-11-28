@@ -101,7 +101,13 @@ $(document).ready(function(){
             $(window).off("beforeunload");
         }
     });
-
+//перезагрузка страницы в указанное время.
+let timerId = setTimeout(function ReloadTab() {
+    var now = new Date();
+  if(now.getHours()==6){
+      $('#blocktabchat')[0].textContent='🔓';
+  document.location.reload();}
+}, 3600000);
 
     // для функции пометки чатов.
     function lightchat()
