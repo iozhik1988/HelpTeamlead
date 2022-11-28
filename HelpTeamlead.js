@@ -71,24 +71,35 @@ function lightchat()
         }
     }
 }
+function blocktabchat(){
+    if($('#blocktabchat')[0].textContent=='🔓'){
+        $('#blocktabchat')[0].textContent='🔐';
+    }
+}
+
 addGlobalStyle('.lightchat {cursor:pointer;background: green; color:white;border: none;color: white;padding: 4px 7px;}.bx-buttons {display: flex;flex-direction: row-reverse;}#todofirst::placeholder {color:#fff}');
+addGlobalStyle('.blocktabchat {cursor:pointer;background: blue; color:white;border: none;color: white;padding: 4px 7px;}.bx-buttons {display: flex;flex-direction: row-reverse;}#todofirst::placeholder {color:#fff}');
 $(document).ready(function(){
     $('.bx-buttons').append('<div class="lightchat"><i>💡</i></div>');
-    $('.bx-buttons').bind( 'click', lightchat );
+    $('.lightchat').bind( 'click', lightchat );
     SaveChat();
 
+    $('.bx-buttons').append('<div class="blocktabchat"><i id="blocktabchat">🔓</i></div>');
+    $('.blocktabchat').bind( 'click', blocktabchat );
 
-	$(window).on("beforeunload", function() {
 
-		return "Вы уверены, что хотите покинуть страницу?";
 
-	});
+    $(window).on("beforeunload", function() {
+        if($('#blocktabchat')[0].textContent=='🔐'){
+            return "Вы уверены, что хотите покинуть страницу1?";
+        }
+    });
 
-	$(document).on("submit", "form", function(event) {
-
-		$(window).off("beforeunload");
-
-	});
+    $(document).on("submit", "form", function(event) {
+        if($('#blocktabchat')[0].textContent=='🔐'){
+            $(window).off("beforeunload");
+        }
+    });
 
 
     // для функции пометки чатов.
